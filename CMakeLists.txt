@@ -3,5 +3,6 @@ project(speed_type C)
 
 set(CMAKE_C_STANDARD 99)
 set(Headers definitions.h dictionary.h utils.h file_reader.h)
+set(Sources dictionary.c utils.c file_reader.c)
 
-add_executable(speed_type main.c ${Headers})
+add_executable(speed_type main.c ${Headers} ${Sources})
