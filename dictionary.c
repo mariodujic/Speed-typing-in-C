@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <malloc.h>
-#include "definitions.h"
 #include "utils.h"
+#include "definitions.h"
 
 void writeDictionary(char **dictionary) {
     char *token;

@@ -1,7 +1,9 @@
 #include <time.h>
-#include "definitions.h"
+#include <malloc.h>
+#include <stdio.h>
 #include "dictionary.h"
 #include "file_reader.h"
+#include "utils.h"
 
 int main() {
     time_t t;
