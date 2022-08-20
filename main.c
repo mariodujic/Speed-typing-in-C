@@ -3,25 +3,30 @@
 #include <stdio.h>
 #include "dictionary.h"
 #include "file_reader.h"
-#include "utils.h"
 #include "timer.h"
+#include "display.h"
 
 int main() {
     time_t t;
     srand((unsigned) time(&t));
 
-    int numberOfWords = numberOfLinesInFile();
-    char **dictionary = malloc(numberOfWords * sizeof(char *));
+    int dictionarySize = numberOfLinesInFile();
+    char **dictionary = malloc(dictionarySize * sizeof(char *));
     writeDictionary(dictionary);
+
+    char **words = malloc(wordsSize * sizeof(char *));
+    writeDisplay(words, dictionary, dictionarySize);
 
     char input[100];
     time_t startTime = time(0);
     while (runEnd(startTime) == 0) {
-        int index = randomNumber(numberOfWords);
-        printf("%s\n", dictionary[index]);
+        for (int i = 0; i < wordsSize; i++) {
+            printf("%s", words[i]);
+        }
         fgets(input, 100, stdin);
     }
 
-    freeDictionary(dictionary, numberOfWords);
+    freeDisplay(words);
+    freeDictionary(dictionary, dictionarySize);
     return 0;
 }
