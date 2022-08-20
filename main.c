@@ -4,6 +4,7 @@
 #include "dictionary.h"
 #include "file_reader.h"
 #include "utils.h"
+#include "timer.h"
 
 int main() {
     time_t t;
@@ -13,11 +14,14 @@ int main() {
     char **dictionary = malloc(numberOfWords * sizeof(char *));
     writeDictionary(dictionary);
 
-    const int displaySize = 5;
-    for (int i = 0; i < displaySize; i++) {
+    char input[100];
+    time_t startTime = time(0);
+    while (runEnd(startTime) == 0) {
         int index = randomNumber(numberOfWords);
-        printf("%s", dictionary[index]);
+        printf("%s\n", dictionary[index]);
+        fgets(input, 100, stdin);
     }
+
     freeDictionary(dictionary, numberOfWords);
     return 0;
 }
