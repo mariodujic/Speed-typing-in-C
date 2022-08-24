@@ -1,6 +1,6 @@
 #include <time.h>
 
-const int maxRunTime = 10;
+const int maxRunTime = 60;
 
 int runEnd(time_t startTime) {
     time_t currentTime = time(0);

@@ -5,7 +5,7 @@ const int wordsSize;
 
 void writeDisplay(char **words, char **dictionary, int dictionarySize);
 
-int containsWord(char **words, char *input);
+int processAnswer(char **dictionary, int dictionarySize, char **words, char *input);
 
 void freeDisplay(char **words);
 

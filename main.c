@@ -26,7 +26,7 @@ int main() {
         }
         printf("\n");
         fgets(input, 100, stdin);
-        int contains = containsWord(words, input);
+        int contains = processAnswer(dictionary, dictionarySize, words, input);
         if (contains == 1) {
             correctAnswers++;
         }
