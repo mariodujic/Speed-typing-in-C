@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <malloc.h>
-#include "utils.h"
 #include "definitions.h"
 
 void writeDictionary(char **dictionary) {
@@ -13,11 +12,12 @@ void writeDictionary(char **dictionary) {
         char line[1500];
         int index = 0;
         while (fgets(line, sizeof line, file) != NULL) {
-            token = strtok(line, search);
-            removeChar(token, '"');
-            length = strlen(token);
+            token = strtok(line, search) + 1;
+            char *word = token + 2;
+            word[strlen(word)-1] = '\0';
+            length = strlen(word);
             dictionary[index] = malloc((length + 1) * sizeof(char));
-            strcpy(dictionary[index], token);
+            strcpy(dictionary[index], word);
             index++;
         }
         fclose(file);

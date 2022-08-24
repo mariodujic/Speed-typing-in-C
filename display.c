@@ -14,6 +14,18 @@ void writeDisplay(char **words, char **dictionary, int dictionarySize) {
     }
 }
 
+int containsWord(char **words, char *input) {
+    input[strlen(input)-1] = '\0';
+    int contains = 0;
+    for (int i = 0; i < wordsSize; i++) {
+        char* w = words[i];
+        if (strcmp(w, input) == 0) {
+            contains = 1;
+        }
+    }
+    return contains;
+}
+
 void freeDisplay(char **words) {
     for (int i = 0; i < wordsSize; i++) {
         free(&words[i]);

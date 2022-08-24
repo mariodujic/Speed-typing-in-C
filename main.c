@@ -18,13 +18,20 @@ int main() {
     writeDisplay(words, dictionary, dictionarySize);
 
     char input[100];
+    int correctAnswers = 0;
     time_t startTime = time(0);
     while (runEnd(startTime) == 0) {
         for (int i = 0; i < wordsSize; i++) {
-            printf("%s", words[i]);
+            printf("%s\t", words[i]);
         }
+        printf("\n");
         fgets(input, 100, stdin);
+        int contains = containsWord(words, input);
+        if (contains == 1) {
+            correctAnswers++;
+        }
     }
+    printf("Correct answers: %d", correctAnswers);
 
     freeDisplay(words);
     freeDictionary(dictionary, dictionarySize);
