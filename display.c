@@ -1,6 +1,5 @@
 #include <string.h>
 #include <malloc.h>
-#include <stdio.h>
 #include "utils.h"
 
 const int wordsSize = 3;
